@@ -33,7 +33,6 @@ public class CountSort {
     }
 
 
-
   public static void main(String[] args) {
     int []arr={5,34,2,7,8};
     CountSort(arr);
