@@ -1,4 +1,4 @@
-package Graph;
+package graphQues;
 
 public class NoOfProviences {
       public int findCircleNum(int[][] isConnected) {
