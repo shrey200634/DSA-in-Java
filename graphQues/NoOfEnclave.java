@@ -12,13 +12,11 @@ class Pair {
         this.second = second;
     }
 }
-
 class Solution {
     public int numEnclaves(int[][] grid) {
         Queue<Pair> queue = new LinkedList<>(); 
         int n = grid.length;
         int m = grid[0].length;
-
         int[][] visited = new int[n][m];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
@@ -30,7 +28,6 @@ class Solution {
                 }
             }
         }
-
         int[] delRow = {-1, 0, 1, 0};
         int[] delCol = {0, 1, 0, -1};
 
