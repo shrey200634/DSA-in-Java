@@ -1,4 +1,4 @@
-package graphQues;
+package graphQuestion;
 
 class longestIncreasingPath{
 

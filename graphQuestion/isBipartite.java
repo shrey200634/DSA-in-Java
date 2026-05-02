@@ -1,4 +1,4 @@
-package graphQues;
+package graphQuestion;
 
 import java.util.LinkedList;
 import java.util.Queue;
