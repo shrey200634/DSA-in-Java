@@ -14,6 +14,7 @@ public class Fibo {
         return dp[n] = f(n-1, dp) + f(n-2 , dp);
     }
 
+    // memo
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
