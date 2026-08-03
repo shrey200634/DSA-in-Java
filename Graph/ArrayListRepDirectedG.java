@@ -24,6 +24,13 @@ public class ArrayListRepDirectedG {
         
     }
 
+
+
+
+
+
+    
+
     public static void addEdge (ArrayList<ArrayList<Integer>> list , int u , int v){
 
         list.get(u).add(v);

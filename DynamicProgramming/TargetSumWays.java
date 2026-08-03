@@ -56,4 +56,46 @@ public class TargetSumWays {
         }
                 return solve(n - 1, tar, num, dp);
     }
+
+    class Solution {
+    public int findTargetSumWays(int[] nums, int target) {
+        int sum = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+        
+        // Edge cases: if (target + sum) is odd or target exceeds total sum
+        if ((sum + target) % 2 != 0 || Math.abs(target) > sum) {
+            return 0;
+        }
+        
+        int subsetSum = (sum + target) / 2;
+        int n = nums.length;
+        
+        // dp[i][j] = number of subsets using first i elements that sum to j
+        int[][] dp = new int[n + 1][subsetSum + 1];
+        
+        // Base case: There is 1 way to make sum 0 (by picking nothing)
+        dp[0][0] = 1;
+        
+        for (int i = 1; i <= n; i++) {
+            // Note: Start j from 0 to correctly handle elements where nums[i-1] == 0
+            for (int j = 0; j <= subsetSum; j++) {
+                // 1. Not Pick option (exclude current element)
+                int notPick = dp[i - 1][j];
+                
+                // 2. Pick option (include element if it doesn't exceed target sum j)
+                int pick = 0;
+                if (nums[i - 1] <= j) {
+                    pick = dp[i - 1][j - nums[i - 1]];
+                }
+                
+                // Total ways is the sum of both decisions
+                dp[i][j] = pick + notPick;
+            }
+        }
+        
+        return dp[n][subsetSum];
+    }
+}
 }
