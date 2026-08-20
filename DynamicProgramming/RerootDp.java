@@ -22,18 +22,13 @@ public class RerootDp{
         count = new int[n];
         ans = new int[n];
 
-        // First DFS
         dfs1(0, -1, 0);
 
-        // Second DFS (Reroot DP)
         dfs2(0, -1, n);
 
         return ans;
     }
 
-    // Computes:
-    // 1. count[node] = size of subtree
-    // 2. ans[0] = sum of distances from root(0)
     private void dfs1(int node, int parent, int depth) {
 
         ans[0] += depth;
@@ -50,7 +45,6 @@ public class RerootDp{
         }
     }
 
-    // Reroot DP
     private void dfs2(int node, int parent, int n) {
 
         for (int child : graph[node]) {
