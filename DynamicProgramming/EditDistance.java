@@ -8,6 +8,7 @@ class Solution {
         int m = word2.length();
 
         int [][] dp = new int [n][m];
+        
 
         for (int [] row : dp){
             Arrays.fill(row , -1);
