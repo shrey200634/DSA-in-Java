@@ -9,6 +9,8 @@ public class WildCardMatching {
         int n = s.length();
         int m = p.length();
 
+        // uses the memo problem 
+
         int [][] memo = new int [n][m];
         for ( int [] row : memo){
             Arrays.fill(row , -1 );
