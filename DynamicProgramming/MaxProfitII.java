@@ -24,5 +24,26 @@ public class MaxProfitII {
         
     }
 }
-    
+
+
+
+// space optimisation 
+    public int maxProfit(int[] prices) {
+
+        int n = prices.length ;
+        int nextBuy =0 ;
+        int nextSell =0 ;
+
+        for ( int i = n-1 ; i>=0 ; i--){
+            int currBuy = Math.max(-prices[i] + nextSell , nextBuy );
+            int currSell = Math.max(prices[i] + nextBuy , nextSell);
+
+            nextBuy = currBuy ;
+            nextSell = currSell ;
+        }
+        return nextBuy ;
+        
+    }
 }
+    
+
