@@ -43,4 +43,43 @@ class BurstBaloon {
         return dp[i][j] = maxCoin ;
 
     }
+
+
+
+
+
+    class Solution {
+    public int maxCoins(int[] nums) {
+
+        int n = nums.length ;
+        int [] bal = new int[n+2];
+
+        bal[0] =1 ;
+        bal[n+1] =1 ;
+
+        for (int i = 0; i < nums.length; i++) {
+        bal[i + 1] = nums[i]; 
+    }
+
+    int [][] dp  = new int [n+2][n+2];
+
+        for ( int i =n ; i>=1 ; i -- ){
+            for ( int j =i ; j <= n ; j++){
+                 int maxCoin  =0 ;
+
+                 for ( int k =i ; k<=j; k++){
+                    int cost = bal[i-1] * bal[k] * bal[j+1]
+                       +dp[i][k-1]
+                       +dp[k+1][j];
+
+                maxCoin = Math.max(cost , maxCoin );
+        }
+                    dp[i][j] = maxCoin ;
+
+            }
+        }
+        return dp[1][n];
+        
+    }
+}
 }
